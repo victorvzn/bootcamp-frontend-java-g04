@@ -65,6 +65,7 @@ main {
 .content h1 {
   font-family: "Fraunces", serif;
   font-size: 42px;
+  line-height: 1;
   /* 14px * 3 = 42px */
   color: hsl(212, 21%, 14%);
   margin: 0;
@@ -74,4 +75,40 @@ main {
   font-weight: 500;
   line-height: 1.5;
   color: hsl(228, 12%, 48%);
+}
+
+.content div {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.content span {
+  font-family: "Fraunces", serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: hsl(158, 36%, 37%);
+}
+
+.content s {
+  color: hsl(228, 12%, 48%);
+}
+
+.content button {
+  border: 0;
+
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  background-color: hsl(158, 36%, 37%);
+  color: hsl(0, 0%, 100%);
+  padding: 14px;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+
+  margin-top: 28px;
+  cursor: pointer;
+  border-radius: 7px;
 }
