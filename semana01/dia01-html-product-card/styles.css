@@ -1,8 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-body {
+/*
   font-family: "Fraunces", serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 200;
+*/
 
+body {
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 14px;
+
+  background-color: hsl(30, 38%, 92%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+}
+
+main {
   background-color: red;
+
+  width: 650px;
+  height: 400px;
 }
