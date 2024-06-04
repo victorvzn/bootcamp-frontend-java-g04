@@ -21,8 +21,28 @@ body {
 }
 
 main {
-  background-color: red;
+  /* background-color: red; */
 
   width: 650px;
   height: 400px;
+
+  display: flex;
+}
+
+.photo {
+  background-color: blue;
+
+  width: 350px;
+
+  background-image: url(./images/image-product-desktop.jpg);
+  background-size: cover;
+  background-repeat: repeat;
+
+  border-radius: 14px 0 0 14px;
+}
+
+.content {
+  background-color: green;
+
+  width: 300px;
 }
