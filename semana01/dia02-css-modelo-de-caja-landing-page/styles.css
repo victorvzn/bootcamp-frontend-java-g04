@@ -32,10 +32,41 @@
   /* Definiendo una variable */
 }
 
-body {
-  --fondo-ejemplo: yellow;
-  /* Ambito de regla css */
+/* body { */
+/* --fondo-ejemplo: yellow; */
+/* Ambito de regla css */
 
-  background-color: var(--fondo-ejemplo);
-  /* Leyendo la variable definida */
+/* background-color: var(--fondo-ejemplo); */
+/* Leyendo la variable definida */
+/* } */
+
+/* GENERAL */
+
+* {
+  /* selector universal, las reglas se aplican a todos los elementos de la página */
+  box-sizing: border-box;
+
+  margin: 0;
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+body {
+  background-color: var(--primary-dark-blue-intro);
+
+  color: var(--neutral-white);
+}
+
+a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+
+  height: auto;
 }
