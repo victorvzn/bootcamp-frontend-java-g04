@@ -78,6 +78,10 @@ img {
   width: min(100% - 3rem, 1440px);
 }
 
+.wrapper-720 {
+  width: min(100% - 3rem, 720px);
+}
+
 .hidden {
   display: none;
 }
@@ -107,4 +111,34 @@ img {
   display: flex;
   gap: 2rem;
   /* 2rem = 2 * 14px = 28px */
+}
+
+/* HERO SECTION */
+
+.hero {
+  border: 1px solid red;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+  text-align: center;
+
+  padding-top: 3rem;
+  padding-bottom: 10rem;
+}
+
+.hero__title {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: 2.5rem;
+  line-height: 1.5;
+}
+
+.hero__content {
+  font-family: var(--font-secondary);
+  line-height: 1.5;
+
+  padding: 0 7rem;
 }
