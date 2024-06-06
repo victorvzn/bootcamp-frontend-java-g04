@@ -116,7 +116,7 @@ img {
 /* HERO SECTION */
 
 .hero {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   display: flex;
   flex-direction: column;
@@ -127,6 +127,9 @@ img {
 
   padding-top: 3rem;
   padding-bottom: 10rem;
+
+  background: url(./images/bg-curvy-desktop.svg) no-repeat bottom;
+  background-size: contain;
 }
 
 .hero__title {
@@ -141,4 +144,52 @@ img {
   line-height: 1.5;
 
   padding: 0 7rem;
+}
+
+.hero__button {
+  font-family: var(--font-secondary);
+  font-weight: var(--font-weight-bold);
+
+  border: 0;
+  border-radius: 7rem;
+  padding: 1rem 1.5rem;
+  min-width: 200px;
+  color: var(--neutral-white);
+  background: linear-gradient(90deg,
+      var(--accent-cyan-gradient) 0%,
+      var(--accent-blue-gradient) 100%);
+  cursor: pointer;
+  transition: all ease .3s;
+}
+
+.hero__button:hover {
+  background: var(--accent-blue-gradient);
+}
+
+/* FEATURES SECTION */
+
+.features {
+  background-color: var(--primary-dark-blue-main);
+
+  display: grid;
+  grid-template-columns: 340px 340px;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.feature {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.feature__title {
+  font-family: var(--font-primary);
+}
+
+.feature__content {
+  font-family: var(--font-secondary);
 }
