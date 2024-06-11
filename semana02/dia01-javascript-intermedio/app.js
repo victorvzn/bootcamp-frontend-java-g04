@@ -38,6 +38,12 @@ listaDeNombres.pop()
 
 console.log(listaDeNombres)
 
+// Insertar un elemento en una posición determinada
+
+listaDeNombres.splice(1, 0, 'HTML')
+
+console.log(listaDeNombres)
+
 // Eliminar un elemento
 
 listaDeNombres.splice(2, 1)
@@ -51,11 +57,60 @@ console.log('bienvenido'.length)
 
 // Otras funciones: slice (Investiguen)
 
+// https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+
 // MÉTODOS DE ARREGLOS
 
+// Método INCLUDES, nos indica si el valor que se pasa como parámetro se encuentra en el arreglo y siempre devuelve un boolean(true o false)
 
+const languages = ['javascript', 'php', 'python', 'C', 'c++', 'java', 'python']
 
+console.log(languages.includes('java')) // true
+console.log(languages.includes('cobol')) // false
 
+// Método FILTER, nos ayuda a ubicar un elemento dentro de un arreglo usando una condición y devuelve un arreglo con los resultados
+
+const resultado = languages.filter(
+  function (language) {
+    // return language === 'java'
+    // return language === 'python'
+    return language.toLowerCase().includes('c')
+  }
+)
+
+console.log(resultado)
+console.log(languages)
+
+// Método MAP, devuelve un arreglo modifica pasandole una función
+
+const nombresConTitulo = languages.map(
+  function (language) {
+    // return 'Hola'
+    return language + '*'
+  }
+)
+
+console.log(nombresConTitulo)
+console.log(languages)
+
+// Método SORT, nos ayuda a ordenar un arreglo de elementos. Muta el arreglo original
+
+const ordenandoLanguages = [...languages].sort()
+
+console.log(ordenandoLanguages)
+console.log(languages)
+
+// Método FOREACH, nos ayuda a recorrer un arreglo sin tener ningun retorno de datos
+
+const miarreglo = []
+
+languages.forEach(
+  function (language) {
+    miarreglo.push('hola--' + language)
+  }
+)
+
+console.log(miarreglo)
 
 // OBJETOS
 
