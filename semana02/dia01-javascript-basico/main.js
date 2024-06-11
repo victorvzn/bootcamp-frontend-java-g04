@@ -14,7 +14,7 @@
 
 // TIPOS DE DATOS (https://lenguajejs.com/javascript/)
 
-// PRIMITIVOS: Number, String, Boolean (true, false), undefined, null, etc
+// PRIMITIVOS: Number, String, Boolean (true, false), undefined, null, BigInt, Symbol
 
 // NUMBER
 
@@ -69,9 +69,44 @@ let apellido = null
 console.log(apellido)
 console.log(typeof apellido)
 
-// Object
-// Function
-// BigInt
-// Symbol
+// BigInt (Tipo de dato primitivo)
+// Symbol (Tipo de dato primitivo)
+
+// Object (Tipo de datos no primitivos)
+// Function (Tipo de datos no primitivos)
+// Array (Tipo de datos no primitivos)
+// Set (Tipo de datos no primitivos)
+// etc.
+
 
 // VARIABLES Y CONSTANTES
+
+// ECMASCRIPT 5 === ES5
+// ECMASCRIPT 6 === ES6
+
+// var -> ES5 (Forma de declarar una variable pero no es recomendado su uso) ❌
+
+// CONST -> ES6 (El uso de const es lo recomendado)
+
+const edad = 55 // Es obligatorio inicializarlo
+const _edad = 25
+const edadDeMiHijo = 15
+const PI = 3.14
+
+// edad = 33 // Uncaught TypeError: Assignment to constant variable.
+
+console.log(edad)
+
+
+// LET -> ES6 (El uso de let es lo recomendado)
+
+let edad2 = 35 // No es obligatorio inicializarlo
+
+edad2 = "36"
+edad2 = true
+edad2 = 22
+
+console.log(edad2)
+console.log(typeof edad2)
+
+// OPERADORES MATEMÁTICOS
