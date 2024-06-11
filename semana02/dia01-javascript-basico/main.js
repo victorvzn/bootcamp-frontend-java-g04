@@ -351,3 +351,42 @@ function imprimirNombreYApellido(nombre, apellido, edad) {
 imprimirNombreYApellido() // Hola soy undefined undefined y tengo undefined años.
 imprimirNombreYApellido('Victor', 'Villazón', 38)
 
+// EJERCICIOS
+
+// 1. Usando funciones determinar si la edad de una persona es mayor de edad o menor de edad mostrando 'Mayor de edad' o 'Menor de edad'
+
+// FUNCIONES SIN RETORNO
+
+function esMayorOMenorDeEdad(edad) {
+  if (edad >= 18) {
+    console.log('Mayor de edad')
+  } else {
+    console.log('Menor de edad')
+  }
+}
+
+esMayorOMenorDeEdad(38)
+esMayorOMenorDeEdad(8)
+esMayorOMenorDeEdad(3)
+
+// FUNCIONES CON RETORNO
+
+function esMayorOMenorDeEdadConRetorno(edad) {
+  if (edad >= 18) {
+    return 'Mayor de edad'
+  } else {
+    return 'Menor de edad'
+  }
+}
+
+const resultado = esMayorOMenorDeEdadConRetorno(15)
+
+console.log('Resultado:', resultado)
+
+console.log(esMayorOMenorDeEdadConRetorno(25))
+console.log(esMayorOMenorDeEdadConRetorno(15))
+
+// PROMPT -> para leer valores del usuario
+// const tuEdad = prompt('Ingresa tu edad')
+
+// console.log(tuEdad)
