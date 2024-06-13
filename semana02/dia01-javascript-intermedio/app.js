@@ -155,13 +155,20 @@ const miObjeto = {
     },
     {
       nombre: 'Algoritmos',
-      nota: 20
+      nota: 13
     }
-  ]
+  ],
+  devolverCursosAprobados: function () {
+    return this.cursos.filter(function (curso) {
+      return curso.nota > 13
+    })
+  }
 }
 
 console.log(miObjetoVacio)
 console.log(miObjeto)
+
+
 
 // Destructuring de arreglos, objetos
 
