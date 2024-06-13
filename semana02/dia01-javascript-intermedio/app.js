@@ -112,7 +112,56 @@ languages.forEach(
 
 console.log(miarreglo)
 
+// Método REDUCE, nos ayuda
+
+const numeros = [3, 40, 100, 7, 50]
+
+const sumatoria = numeros.reduce(
+  function (accumulador, valorActual) {
+    return accumulador + valorActual
+  }, 0)
+
+console.log(sumatoria)
+
+// let acumulador = 0
+
+// for (let i = 0; i < numeros.length; i++) {
+//   acumulador = acumulador + numeros[i]
+// }
+
+// console.log(acumulador)
+
 // OBJETOS
+
+/*
+  {
+    KEY1: VALUE1,
+    KEY2: VALUE1
+  }
+*/
+
+const miObjetoVacio = {}
+
+const miObjeto = {
+  nombre: 'Victor',
+  apellido: 'Villazón',
+  colorFavorito: 'azúl',
+  'mi edad': 37,
+  coloresFavoritos: ['rosado', 'rojo', 'azúl'],
+  cursos: [
+    {
+      nombre: 'Matemática',
+      nota: 18
+    },
+    {
+      nombre: 'Algoritmos',
+      nota: 20
+    }
+  ]
+}
+
+console.log(miObjetoVacio)
+console.log(miObjeto)
 
 // Destructuring de arreglos, objetos
 
