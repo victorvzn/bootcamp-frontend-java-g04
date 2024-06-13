@@ -168,7 +168,39 @@ const miObjeto = {
 console.log(miObjetoVacio)
 console.log(miObjeto)
 
+// LEER LOS CAMPOS DE UN OBETO (notación de punto y de corchete)
 
+console.log(miObjeto.nombre) // Victor
+console.log(miObjeto.apellido) // Villazón
+console.log(miObjeto.edad) // undefined
+
+// console.log(miObjeto.mi edad) // BAD ❌ - Uncaught SyntaxError: missing ) after argument list 
+console.log(miObjeto['mi edad'])  // OK ✅
+
+console.log(miObjeto.coloresFavoritos)
+console.log(miObjeto.coloresFavoritos[2])
+
+console.log(miObjeto.cursos)
+console.log(miObjeto.cursos[1])
+console.log(miObjeto.cursos[1].nombre)
+console.log(miObjeto.cursos[1].nota)
+console.log(miObjeto.cursos[1]['nota'])
+
+console.log(miObjeto.devolverCursosAprobados)
+console.log(miObjeto.devolverCursosAprobados())
+
+// ELIMINAR PROPIEDADES DE UN OBJETO
+
+console.log(miObjeto)
+delete miObjeto.colorFavorito
+console.log(miObjeto)
+
+// INSERTAR UN NUEVA PROPIEDAD A UN OBJETO
+
+miObjeto.platilloFavorito = 'Ceviche de Conchas Negras'
+miObjeto['juegos favoritos'] = ['Crash Team Racing', 'Mario', 'Minecraft']
+
+console.log(miObjeto)
 
 // Destructuring de arreglos, objetos
 
