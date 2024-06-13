@@ -18,7 +18,15 @@ const ovejas = [
 ]
 
 function contarOvejas(ovejas) {
-  return ovejas
+  return ovejas.filter(function(oveja) {
+    const nameLowered = oveja.name.toLowerCase()
+    
+    const isRedColor = oveja.color === 'rojo'
+    const hasLetterN = nameLowered.includes('n')
+    const hasLetterA = nameLowered.includes('a')
+    
+    return isRedColor && hasLetterN && hasLetterA
+  })
 }
 
 const ovejasFiltradas = contarOvejas(ovejas)
@@ -50,7 +58,22 @@ Tenemos que crear una función que recibe el número de céntimos que hay que de
 */
 
 function getCoins(change) {
-  // La lógica del ejercicio
+  const multiples = [1, 2, 5, 10, 20, 50]
+  
+  let acc = change
+  
+  return multiples
+    .reverse()
+    .map(function(multiple) {
+      let quotient = Math.floor(acc / multiple)
+      
+      if (quotient > 0) acc = acc % multiple
+
+      return quotient
+    })
+    .reverse()
+  
+  return change
 }
 
 getCoins(51) // [1, 0, 0, 0, 0, 1] -> una moneda de 1 céntimo y otra de 50 céntimos
