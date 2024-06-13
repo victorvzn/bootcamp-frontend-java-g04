@@ -202,9 +202,108 @@ miObjeto['juegos favoritos'] = ['Crash Team Racing', 'Mario', 'Minecraft']
 
 console.log(miObjeto)
 
-// Destructuring de arreglos, objetos
+// DESTRUCTURING DE ARREGLOS, OBJETOS
 
-// Spread Operator
+// Una forma de extraer las propiedades/elementos de un objeto o un arreglo en nuevas variables
 
+// OBJETOS
+
+const nombreValue = miObjeto.nombre
+const apellidoValue = miObjeto.apellido
+const cursosValue = miObjeto.cursos
+
+console.log(nombreValue, apellidoValue, cursosValue)
+
+const { nombre, apellido, cursos } = miObjeto
+
+console.log(nombre, apellido, cursos)
+
+const {
+  nombre: nombreValor,
+  apellido: apellidoValor,
+  cursos: cursosValor
+} = miObjeto
+
+console.log(nombreValor, apellidoValor, cursosValor)
+
+// ARRAYS
+
+const amigos = ['leo', 'maricial', 'diego', 'andrea', 'victor']
+
+const [amigo1, amigo2, , , amigo3] = amigos
+
+console.log(amigo1, amigo2, amigo3)
+
+// SPREAD OPERATOR (operador ...)
+
+// Extrae las propiedades de un objeto/arreglo para reutiliarlo en otros objetos/arreglos
+
+const producto = {
+  nombre: 'Laptop',
+  precio: 5900,
+  categoria: 'tech'
+}
+
+const cliente = {
+  nombre: 'Marcial',
+  isVip: true
+}
+
+console.log(producto + cliente) // ❌ 💔 [object Object][object Object]
+
+const nuevoObjeto = { ...producto, ...cliente } // Cuidado
+
+console.log(nuevoObjeto)
+
+// SPREAD OPERATOS EVITANDO COLISIONES DE PROPIEDADES
+
+const nuevoObjetoSinColisiones = {
+  producto: { ...producto },
+  cliente: { ...cliente },
+}
+
+console.log(nuevoObjetoSinColisiones)
+console.log(nuevoObjetoSinColisiones.producto.nombre)
+console.log(nuevoObjetoSinColisiones.cliente.nombre)
+
+// OTROS MÉTODOS DE OBJETOS
+
+console.log(Object.keys(producto)) // Obtenemos solo las claves (keys) del objeto
+console.log(Object.values(producto)) // Obtenemos solo los valores (values) del objeto
+console.log(Object.entries(producto)) // convertimos un objeto en un arreglo
+
+// EJEMPLO FINAL CON OBJETOS
+
+const hero = 'Spiderman' // 'Victor'
+
+// if (hero === 'Batman') {
+//   console.log('Hola soy Bruce')
+// } else if (hero === 'Spiderman') {
+//   console.log('Hola soy Peter')
+// } else if (hero === 'Ironman') {
+//   console.log('Hola soy Tony')
+// } else {
+//   console.log('No soy un heroe aún 😒')
+// }
+
+const SUPER_HEROES = {
+  'Batman': 'Hola soy Bruce',
+  'Spiderman': 'Hola soy Peter',
+  'Ironman': 'Hola soy Tony'
+}
+
+console.log(SUPER_HEROES[hero] ?? 'No soy un heroe aún 😒')
+
+// const resutado = SUPER_HEROES[hero]
+
+// if (resultado) {
+//   console.log(SUPER_HEROES[hero])
+// } else {
+//   console.log('No soy un heroe aún 😒')
+// }
+
+// TODO: Desarrollar 3 retos del siguiente link para el miércoles
+
+// https://2021.adventjs.dev/challenges
 
 
