@@ -1,6 +1,6 @@
 console.log('Hola JS')
 
-const url = 'https://jsonplaceholder.typicode.com/postsxxxxx'
+const url = 'https://jsonplaceholder.typicode.com/posts'
 
 // METHODS: GET, POST, PUT DELETE, PATCH
 
