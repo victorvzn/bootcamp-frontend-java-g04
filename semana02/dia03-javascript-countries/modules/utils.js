@@ -4,6 +4,16 @@ export const renderCountries = (countries = []) => {
   // TODO: RETO03 - Formatear el campo population usando separadores de miles.
   // Ayuda: https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
 
+  const formatNumber = (number) => {
+    const localeDefault = 'en-US'
+
+    const options = {
+      minimumFractionDigits: 2
+    }
+
+    return new Intl.NumberFormat(localeDefault, options).format(number)
+  }
+
   const countryListElement = document.querySelector('.app__list')
 
   let countryList = ''
@@ -16,7 +26,7 @@ export const renderCountries = (countries = []) => {
         <div class="country__wrapper">
           <h2>${country.name.common}</h2>
           <div class="country__description">
-            <strong>Population:</strong> ${country.population}
+            <strong>Population:</strong> ${formatNumber(country.population)}
           </div>
           <div class="country__description">
             <strong>Region:</strong> ${country.region}
