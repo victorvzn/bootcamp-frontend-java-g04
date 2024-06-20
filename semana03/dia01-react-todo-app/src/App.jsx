@@ -1,6 +1,9 @@
 import { useState } from "react"
 
 import TodoHeader from "./components/TodoHeader"
+import TodoForm from "./components/TodoForm"
+import TodoList from "./components/TodoList"
+import TodoStats from "./components/TodoStats"
 
 const App = () => {
   const DEFAULT_TODOS = [
@@ -22,33 +25,6 @@ const App = () => {
   ]
 
   const [todos, setTodos] = useState(DEFAULT_TODOS)
-  const [input, setInput] = useState('')
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    console.log('Añadiendo una nueva tarea...')
-
-    const newTodo = {
-      id: crypto.randomUUID(),
-      title: input,
-      completed: false
-    }
-
-    const updatedTodos = [...todos, newTodo]
-
-    setTodos(updatedTodos)
-
-    setInput('')
-  }
-
-  const handleChange = (event) => {
-    // Estamos capturando lo que escribimos en la caja de texto
-
-    const value = event.target.value
-
-    setInput(value)
-  }
 
   const handleRemoveTodo = (event) => {
     
@@ -87,14 +63,16 @@ const App = () => {
     // console.log(event.target.dataset)
   }
 
-  const totalTodos = todos.length
-
-  const completedTodos = todos.filter(todo => todo.completed).length
-
-  const handleClearTodos = (event) => {
+  const handleClearTodos = () => {
     const imcompletedTodos = todos.filter(todo => !todo.completed)
 
     setTodos(imcompletedTodos)
+  }
+
+  const handleSubmit = (newTodo) => {
+    const updatedTodos = [...todos, newTodo]
+
+    setTodos(updatedTodos)
   }
 
   return (
@@ -107,35 +85,21 @@ const App = () => {
 
       {/* --{input}-- */}
 
-      <form onSubmit={handleSubmit}>
-        <input
-          className="w-full border my-3 p-3"
-          type="text"
-          placeholder="¿Qué deseas hacer hoy?"
-          required
-          onChange={handleChange}
-          value={input}
-        />
-      </form>
+      <TodoForm
+        onSubmit={handleSubmit}
+      />
 
       {/* DONE: RETO1 - Añadir una estadística de cuantas tareas estan completadas y el total de tareas */}
       {/* TODO: RETO2 - Completar la funcionalidad del botón limpiar tareas */}
 
       {/* Renderizado condicional */}
       {
-        totalTodos > 0
+        todos.length > 0
           ? (
-              <section className="flex justify-between items-center">
-                <span className="font-bold">
-                  {completedTodos} de {totalTodos}
-                </span>
-                <button
-                  className="bg-blue-500 rounded-lg px-2 py-1 text-white hover:bg-blue-700 duration-300"
-                  onClick={handleClearTodos}
-                >
-                  Limpiar completadas
-                </button>
-              </section>
+              <TodoStats
+                todos={todos}
+                onClearTodos={handleClearTodos}
+              />
             )
           : (
             <div className="text-center font-medium">Agrega más tareas en la parte superior.</div>
@@ -143,40 +107,11 @@ const App = () => {
         }
 
       <section className="mt-8">
-        <ul className="flex flex-col gap-2">
-          {
-            todos.map(
-              function(todo) {
-                return (
-                  <li className="flex" key={todo.id}>
-                    <input
-                      type="checkbox"
-                      className="mr-2"
-                      data-id={todo.id}
-                      data-ejemplo='hola'
-                      onChange={handleCompleted}
-                      checked={todo.completed}
-                    />
-                    <div className="w-full flex justify-between items-center">
-                      <span
-                        className={todo.completed ? 'line-through' : ''}
-                      >
-                        {todo.title}
-                      </span>
-                      <button
-                        className="bg-red-300 rounded-lg px-1 py-1"
-                        data-id={todo.id}
-                        onClick={handleRemoveTodo}
-                      >
-                        ❌
-                      </button>
-                    </div>
-                  </li>
-                )
-              }
-            )
-          }
-        </ul>
+        <TodoList
+          todos={todos}
+          onCompleted={handleCompleted}
+          onRemoveTodo={handleRemoveTodo}
+        />
       </section>
 
       <pre>
