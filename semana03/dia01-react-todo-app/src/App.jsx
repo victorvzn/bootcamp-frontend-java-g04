@@ -62,6 +62,11 @@ const App = () => {
     // console.log(event.target.dataset)
   }
 
+  const handleCompleted = (event) => {
+    // console.log(event.target)
+    console.log(event.target.dataset)
+  }
+
   return (
     <main
       className="bg-yellow-100 w-full max-w-sm mx-auto mt-10 border border-yellow-600 rounded-lg shadow-lg p-4"
@@ -101,7 +106,13 @@ const App = () => {
               function(todo) {
                 return (
                   <li className="flex" key={todo.id}>
-                    <input type="checkbox" className="mr-2" />
+                    <input
+                      type="checkbox"
+                      className="mr-2"
+                      data-id={todo.id}
+                      data-ejemplo='hola'
+                      onChange={handleCompleted}
+                    />
                     <div className="w-full flex justify-between items-center">
                       <span>{todo.title}</span>
                       <button
