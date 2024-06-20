@@ -3,17 +3,17 @@ import { useState } from "react"
 const App = () => {
   const DEFAULT_TODOS = [
     {
-      id: 1,
+      id: '1',
       title: 'Aprender JS',
       completed: true
     },
     {
-      id: 2,
+      id: '2',
       title: 'Aprender CSS',
       completed: true
     },
     {
-      id: 3,
+      id: '3',
       title: 'Aprender React.js + Tailwindcss',
       completed: false
     }
@@ -46,6 +46,20 @@ const App = () => {
     const value = event.target.value
 
     setInput(value)
+  }
+
+  const handleRemoveTodo = (event) => {
+    
+    const { id } = event.target.dataset
+    
+    console.log(id)
+
+    const updatedTodos = todos.filter(todo => todo.id !== id)
+
+    setTodos(updatedTodos)
+    
+    // console.log({ target: event.target })
+    // console.log(event.target.dataset)
   }
 
   return (
@@ -92,6 +106,8 @@ const App = () => {
                       <span>{todo.title}</span>
                       <button
                         className="bg-red-300 rounded-lg px-1 py-1"
+                        data-id={todo.id}
+                        onClick={handleRemoveTodo}
                       >
                         ❌
                       </button>
