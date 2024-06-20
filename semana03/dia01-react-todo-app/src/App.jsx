@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+import TodoHeader from "./components/TodoHeader"
+
 const App = () => {
   const DEFAULT_TODOS = [
     {
@@ -99,7 +101,7 @@ const App = () => {
     <main
       className="bg-yellow-100 w-full max-w-sm mx-auto mt-10 border border-yellow-600 rounded-lg shadow-lg p-4"
     >
-      <h1 className="text-2xl font-bold text-center">TODO APP</h1>
+      <TodoHeader title='TODO APP v0.2.0' />
 
       {/* {['victor', 'paul']} */}
 
