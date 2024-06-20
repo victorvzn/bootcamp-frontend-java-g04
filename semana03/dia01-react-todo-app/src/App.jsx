@@ -63,8 +63,26 @@ const App = () => {
   }
 
   const handleCompleted = (event) => {
+    const { id } = event.target.dataset
+    const isChecked = event.target.checked
+
+    console.log(id, isChecked)
+
+    const updatedTodos = todos.map(todo => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          completed: isChecked
+        }
+      }
+
+      return todo // Deja el objeto sin modificaciones
+    })
+
+    setTodos(updatedTodos)
+
     // console.log(event.target)
-    console.log(event.target.dataset)
+    // console.log(event.target.dataset)
   }
 
   return (
@@ -112,9 +130,14 @@ const App = () => {
                       data-id={todo.id}
                       data-ejemplo='hola'
                       onChange={handleCompleted}
+                      checked={todo.completed}
                     />
                     <div className="w-full flex justify-between items-center">
-                      <span>{todo.title}</span>
+                      <span
+                        className={todo.completed ? 'line-through' : ''}
+                      >
+                        {todo.title}
+                      </span>
                       <button
                         className="bg-red-300 rounded-lg px-1 py-1"
                         data-id={todo.id}
