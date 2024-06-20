@@ -20,6 +20,33 @@ const App = () => {
   ]
 
   const [todos, setTodos] = useState(DEFAULT_TODOS)
+  const [input, setInput] = useState('')
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    console.log('Añadiendo una nueva tarea...')
+
+    const newTodo = {
+      id: crypto.randomUUID(),
+      title: input,
+      completed: false
+    }
+
+    const updatedTodos = [...todos, newTodo]
+
+    setTodos(updatedTodos)
+
+    setInput('')
+  }
+
+  const handleChange = (event) => {
+    // Estamos capturando lo que escribimos en la caja de texto
+
+    const value = event.target.value
+
+    setInput(value)
+  }
 
   return (
     <main
@@ -27,16 +54,18 @@ const App = () => {
     >
       <h1 className="text-2xl font-bold text-center">TODO APP</h1>
 
-      {/* {JSON.stringify(todos)} */}
-
       {/* {['victor', 'paul']} */}
 
-      <form>
+      {/* --{input}-- */}
+
+      <form onSubmit={handleSubmit}>
         <input
           className="w-full border my-3 p-3"
           type="text"
           placeholder="¿Qué deseas hacer hoy?"
           required
+          onChange={handleChange}
+          value={input}
         />
       </form>
 
@@ -74,6 +103,10 @@ const App = () => {
           }
         </ul>
       </section>
+
+      <pre>
+        {JSON.stringify(todos, null, 2)}
+      </pre>
     </main>
   )
 }
