@@ -85,6 +85,16 @@ const App = () => {
     // console.log(event.target.dataset)
   }
 
+  const totalTodos = todos.length
+
+  const completedTodos = todos.filter(todo => todo.completed).length
+
+  const handleClearTodos = (event) => {
+    const imcompletedTodos = todos.filter(todo => !todo.completed)
+
+    setTodos(imcompletedTodos)
+  }
+
   return (
     <main
       className="bg-yellow-100 w-full max-w-sm mx-auto mt-10 border border-yellow-600 rounded-lg shadow-lg p-4"
@@ -106,19 +116,23 @@ const App = () => {
         />
       </form>
 
-      {/* TODO: RETO1 - Añadir una estadística de cuantas tareas estan completadas y el total de tareas */}
+      {/* DONE: RETO1 - Añadir una estadística de cuantas tareas estan completadas y el total de tareas */}
       {/* TODO: RETO2 - Completar la funcionalidad del botón limpiar tareas */}
 
-      <section className="flex justify-between items-center">
-        <span className="font-bold">
-          2 de 3
-        </span>
-        <button
-          className="bg-blue-500 rounded-lg px-2 py-1 text-white hover:bg-blue-700 duration-300"
-        >
-          Limpiar completadas
-        </button>
-      </section>
+      {/* Renderizado condicional */}
+      {totalTodos > 0 && (
+        <section className="flex justify-between items-center">
+          <span className="font-bold">
+            {completedTodos} de {totalTodos}
+          </span>
+          <button
+            className="bg-blue-500 rounded-lg px-2 py-1 text-white hover:bg-blue-700 duration-300"
+            onClick={handleClearTodos}
+          >
+            Limpiar completadas
+          </button>
+        </section>
+      )}
 
       <section className="mt-8">
         <ul className="flex flex-col gap-2">
