@@ -120,19 +120,25 @@ const App = () => {
       {/* TODO: RETO2 - Completar la funcionalidad del botón limpiar tareas */}
 
       {/* Renderizado condicional */}
-      {totalTodos > 0 && (
-        <section className="flex justify-between items-center">
-          <span className="font-bold">
-            {completedTodos} de {totalTodos}
-          </span>
-          <button
-            className="bg-blue-500 rounded-lg px-2 py-1 text-white hover:bg-blue-700 duration-300"
-            onClick={handleClearTodos}
-          >
-            Limpiar completadas
-          </button>
-        </section>
-      )}
+      {
+        totalTodos > 0
+          ? (
+              <section className="flex justify-between items-center">
+                <span className="font-bold">
+                  {completedTodos} de {totalTodos}
+                </span>
+                <button
+                  className="bg-blue-500 rounded-lg px-2 py-1 text-white hover:bg-blue-700 duration-300"
+                  onClick={handleClearTodos}
+                >
+                  Limpiar completadas
+                </button>
+              </section>
+            )
+          : (
+            <div className="text-center font-medium">Agrega más tareas en la parte superior.</div>
+          )
+        }
 
       <section className="mt-8">
         <ul className="flex flex-col gap-2">
