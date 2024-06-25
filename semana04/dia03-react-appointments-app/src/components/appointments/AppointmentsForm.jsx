@@ -39,7 +39,7 @@ const AppointmentsForm = ({ onSaveAppointment }) => {
     <section className="w-96 p-4 border rounded-md">
       <h2 className="text-2xl text-center mb-4">Nuevo paciente</h2>
 
-      <pre>{JSON.stringify(form, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(form, null, 2)}</pre> */}
 
       <form
         className="flex flex-col gap-4"

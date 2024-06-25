@@ -32,9 +32,9 @@ const App = () => {
           onSaveAppointment={handleSaveAppointment}
         />
 
-        <pre>{JSON.stringify(appointments, null, 2)}</pre>
-
-        <AppointmentsList />
+        <AppointmentsList
+          appointments={appointments}
+        />
       </main>
     </>
   )
