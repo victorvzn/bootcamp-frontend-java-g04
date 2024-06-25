@@ -21,6 +21,8 @@ const App = () => {
   const [currentAppointment, setCurrentAppointment] = useState()
 
   const handleSaveAppointment = (appointment, isNew) => {
+    // TODO: Avanzar la lógica para editar una cita médica
+
     if (isNew) {
       setAppointments([...appointments, appointment])
     } else {
@@ -57,7 +59,6 @@ const App = () => {
 
     setAppointments(newAppointments)
 
-    // TODO: Avanzar la lógica para editar una cita médica
   }
 
   const handleEdit = (appointment) => {
