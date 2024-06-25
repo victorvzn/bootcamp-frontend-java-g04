@@ -1,6 +1,6 @@
 import AppointmentItem from './AppointmentItem'
 
-const AppointmentsList = ({ appointments, onRemove }) => {
+const AppointmentsList = ({ appointments, onRemove, onEdit }) => {
   return (
     <>
       <section className="w-1/2 p-4 bg-white rounded-lg" >
@@ -13,6 +13,7 @@ const AppointmentsList = ({ appointments, onRemove }) => {
                 key={appointment.id}
                 appointment={appointment}
                 onRemove={onRemove}
+                onEdit={onEdit}
               />
             )
           })}

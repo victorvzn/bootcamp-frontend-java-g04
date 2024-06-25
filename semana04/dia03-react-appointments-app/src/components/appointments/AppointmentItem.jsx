@@ -1,4 +1,4 @@
-const AppointmentItem = ({ appointment, onRemove }) => {
+const AppointmentItem = ({ appointment, onRemove, onEdit }) => {
   return (
     <article
       className="border-2 border-sky-500 p-3 rounded-lg bg-sky-300"
@@ -39,6 +39,7 @@ const AppointmentItem = ({ appointment, onRemove }) => {
         </button>
         <button
           className="p-2 bg-sky-600 text-white rounded-lg cursor-pointer"
+          onClick={() => onEdit(appointment)}
         >
           Editar
         </button>

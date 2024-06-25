@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-const AppointmentsForm = ({ onSaveAppointment }) => {
+const AppointmentsForm = ({ onSaveAppointment, appointment }) => {
   const INITIAL_FORM_STATE  = {
     id: '',
     petName: '',
@@ -10,20 +10,33 @@ const AppointmentsForm = ({ onSaveAppointment }) => {
     appointmentTime: '',
     symptoms: ''
   }
-
+  
   const [form, setForm] = useState(INITIAL_FORM_STATE)
 
+  useEffect(() => {
+    if (appointment?.id) {
+      setForm(appointment)
+    }
+  }, [appointment])
+  
   const handleSubmit = (event) => {
     event.preventDefault();
-    
-    const newAppointment = {
-      ...form,
-      id: crypto.randomUUID()
+
+    if (appointment?.id) {
+      // Aplico la lógica para la edición de la cita
+
+      onSaveAppointment(form, false)
+    } else {
+      // Aplico la lógica para una nueva cita
+      const newAppointment = {
+        ...form,
+        id: crypto.randomUUID()
+      }
+  
+      console.log('Guardando ...', newAppointment)
+  
+      onSaveAppointment(newAppointment, true)
     }
-
-    console.log('Guardando ...', newAppointment)
-
-    onSaveAppointment(newAppointment)
 
     setForm(INITIAL_FORM_STATE)
   }
