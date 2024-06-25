@@ -32,11 +32,17 @@ const App = () => {
         appointment => appointment.id === id
       )
 
-      console.log(appointmentFoundIndex, appointment)
+      // console.log(appointmentFoundIndex, appointment)
 
-      const newAppointments = [...appointments].splice(appointmentFoundIndex, 1, appointment)
+      // Hacemos una copia del estado original
+      
+      // Primer método de copia: superficial (shallow copy)
+      // const newAppointments = [...appointments]
+      
+      // Segundo método de copia: profundo (deep copy) -
+      const newAppointments = structuredClone(appointments)
 
-      console.log(newAppointments)
+      newAppointments[appointmentFoundIndex] = appointment
 
       setAppointments(newAppointments)
     }
