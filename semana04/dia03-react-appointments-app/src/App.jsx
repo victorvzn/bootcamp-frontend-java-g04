@@ -23,6 +23,18 @@ const App = () => {
     setAppointments([...appointments, appointment])
   }
 
+  const handleRemove = (appointment) => {
+    console.log(appointment.id)
+    // TODO: terminar la lógica para eliminar una cita médica
+    const { id } = appointment
+
+    const newAppointments = appointments.filter(appointment => appointment.id !== id)
+
+    setAppointments(newAppointments)
+
+    // TODO: Avanzar la lógica para editar una cita médica
+  }
+
   return (
     <>
       <AppointmentsHeader title="Citas médicas para mascotas" />
@@ -34,6 +46,7 @@ const App = () => {
 
         <AppointmentsList
           appointments={appointments}
+          onRemove={handleRemove}
         />
       </main>
     </>
