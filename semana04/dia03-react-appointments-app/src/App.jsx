@@ -1,5 +1,6 @@
 import { useState } from "react"
 
+import AppointmentsHeader from "./components/appointments/AppointmentsHeader"
 import AppointmentsForm from "./components/appointments/AppointmentsForm"
 import AppointmentsList from "./components/appointments/AppointmentsList"
 
@@ -20,9 +21,13 @@ const App = () => {
 
   return (
     <>
-      <AppointmentsForm />
+      <AppointmentsHeader title="Citas médicas para mascotas" />
 
-      <AppointmentsList />
+      <main className="container m-auto flex gap-12 py-5">
+        <AppointmentsForm />
+
+        <AppointmentsList />
+      </main>
     </>
   )
 }
