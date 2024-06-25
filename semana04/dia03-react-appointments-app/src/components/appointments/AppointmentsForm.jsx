@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const AppointmentsForm = () => {
+const AppointmentsForm = ({ onSaveAppointment }) => {
   const INITIAL_FORM_STATE  = {
     id: '',
     petName: '',
@@ -16,7 +16,16 @@ const AppointmentsForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     
-    console.log('Guardando ...')
+    const newAppointment = {
+      ...form,
+      id: crypto.randomUUID()
+    }
+
+    console.log('Guardando ...', newAppointment)
+
+    onSaveAppointment(newAppointment)
+
+    setForm(INITIAL_FORM_STATE)
   }
 
   const handleChange = (event) => {
@@ -42,6 +51,7 @@ const AppointmentsForm = () => {
           placeholder="Nombre de la mascota"
           className="border p-3 shadow-md rounded-md w-full"
           onChange={handleChange}
+          value={form.petName}
         />
         <input
           type="number"
@@ -49,6 +59,7 @@ const AppointmentsForm = () => {
           placeholder="Edad de la mascota"
           className="border p-3 shadow-md rounded-md w-full"
           onChange={handleChange}
+          value={form.petAge}
         />
         <input
           type="text"
@@ -56,6 +67,7 @@ const AppointmentsForm = () => {
           placeholder="Dueño de la mascota"
           className="border p-3 shadow-md rounded-md w-full"
           onChange={handleChange}
+          value={form.ownerName}
         />
         <input
           type="date"
@@ -63,6 +75,7 @@ const AppointmentsForm = () => {
           placeholder="Fecha de la cita"
           className="border p-3 shadow-md rounded-md w-full"
           onChange={handleChange}
+          value={form.appointmentDate}
         />
         <input
           type="time"
@@ -70,6 +83,7 @@ const AppointmentsForm = () => {
           placeholder="Hora de la cita"
           className="border p-3 shadow-md rounded-md w-full"
           onChange={handleChange}
+          value={form.appointmentTime}
         />
         <textarea
           name="symptoms"
@@ -77,6 +91,7 @@ const AppointmentsForm = () => {
           rows="5"
           className="border p-3 shadow-md rounded-md w-full"
           onChange={handleChange}
+          value={form.symptoms}
         >
         </textarea>
         <input

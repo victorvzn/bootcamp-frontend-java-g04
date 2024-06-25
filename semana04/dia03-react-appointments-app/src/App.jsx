@@ -19,12 +19,20 @@ const App = () => {
 
   const [appointments, setAppointments] = useState(INITIAL_APPOINTMENTS)
 
+  const handleSaveAppointment = (appointment) => {
+    setAppointments([...appointments, appointment])
+  }
+
   return (
     <>
       <AppointmentsHeader title="Citas médicas para mascotas" />
 
       <main className="container m-auto flex gap-12 py-5">
-        <AppointmentsForm />
+        <AppointmentsForm
+          onSaveAppointment={handleSaveAppointment}
+        />
+
+        <pre>{JSON.stringify(appointments, null, 2)}</pre>
 
         <AppointmentsList />
       </main>
