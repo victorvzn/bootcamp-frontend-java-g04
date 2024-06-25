@@ -24,6 +24,8 @@ const App = () => {
     if (isNew) {
       setAppointments([...appointments, appointment])
     } else {
+      // TODO: Editar la cita con el id
+
       const { id } = appointment
 
       const appointmentFoundIndex = appointments.findIndex(
@@ -37,8 +39,6 @@ const App = () => {
       console.log(newAppointments)
 
       setAppointments(newAppointments)
-
-      // TODO: Editar la cita con el id
     }
   }
 

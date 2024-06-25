@@ -35,6 +35,7 @@ const AppointmentItem = ({ appointment, onRemove, onEdit }) => {
         <button
           className="p-2 bg-green-600 text-white rounded-lg cursor-pointer"
         >
+          {/* TODO: Terminar la lógica de este botón de confirmar cita agregando un nuevo campo al arreglo de citas */}
           Confirmar Cita
         </button>
         <button

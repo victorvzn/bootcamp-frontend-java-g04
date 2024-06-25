@@ -1,6 +1,19 @@
 import AppointmentItem from './AppointmentItem'
 
 const AppointmentsList = ({ appointments, onRemove, onEdit }) => {
+
+  if (appointments.length === 0) {
+    return (
+      <section className="w-1/2 p-4 bg-white rounded-lg" >
+        <h2 className="text-2xl text-center mb-4">Listado de Citas</h2>
+
+        <div className='text-2xl text-center'>
+          No hay citas.
+        </div>
+      </section>
+    )
+  }
+
   return (
     <>
       <section className="w-1/2 p-4 bg-white rounded-lg" >
