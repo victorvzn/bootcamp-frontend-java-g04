@@ -34,10 +34,14 @@ const App = () => {
   }, [page])
 
   const handlePrev = () => {
+    // TODO: Validar que la página sea mayor de cero
+
     setPage(page - 1)
   }
   
   const handleNext = () => {
+    // TODO: Validar que la página sea menor que la última página (131)
+
     setPage(page + 1)
   }
 
