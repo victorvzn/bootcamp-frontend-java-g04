@@ -6,7 +6,7 @@ const LayoutBase = () => {
     <>
       <Navbar />
 
-      <div className="container mx-auto p-4"><Outlet /></div>
+      <div className="container mx-auto px-4 mt-5"><Outlet /></div>
     </>
   )
 }
