@@ -1,10 +1,16 @@
-import React from 'react'
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+
+import HomePage from "./pages/HomePage"
 
 const App = () => {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/login' element={<h1>LOGIN PAGE</h1>} />
+        <Route path='/register' element={<h1>REGISTER PAGE</h1>} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
