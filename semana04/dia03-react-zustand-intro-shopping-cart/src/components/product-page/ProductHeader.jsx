@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { TbShoppingBag } from "react-icons/tb";
+import { useCartStore } from "../../store/cart";
 
 const Header = () => {
   const [open, setOpen] = useState(false)
+
+  const { cart } = useCartStore()
 
   const showCart = open ? 'translate-none' : 'translate-x-full'
 
@@ -38,7 +41,7 @@ const Header = () => {
             </button>
           </div>
 
-          {/* {JSON.stringify(cart, null, 2)} */}
+          {JSON.stringify(cart, null, 2)}
         </div>
       </div>
 
