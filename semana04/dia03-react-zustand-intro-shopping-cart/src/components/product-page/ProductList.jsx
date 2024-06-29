@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
-
 import axios from 'axios'
+
+import ProductItem from "./ProductItem"
 
 // const fetchProductsWithAPIFetch = async () => {
 //   const url = 'https://dummyjson.com/products'
@@ -34,7 +35,13 @@ const ProductList = () => {
       {/* TODO: Listar los nombres de los productos desde el estado productList */}
 
       {productList.map(product => (
-        <p key={product.id}>{product.title}</p>
+        <ProductItem
+          key={product.id}
+          title={product.title}
+          description={product.description}
+          price={product.price}
+          thumbnail={product.thumbnail}
+        />
       ))}
 
       {/* <pre>{JSON.stringify(productList, null, 2)}</pre> */}
