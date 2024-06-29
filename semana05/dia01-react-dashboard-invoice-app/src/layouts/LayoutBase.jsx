@@ -8,7 +8,7 @@ const LayoutBase = () => {
           <h1 className="font-bold">Invoice App</h1>
           <nav className="flex gap-4">
             <Link to="/" className="hover:font-bold">Login</Link>
-            <Link to="/dashboard" className="hover:font-bold">Dashboard</Link>
+            <Link to="/invoices" className="hover:font-bold">Invoices</Link>
           </nav>
         </div>
       </header>
