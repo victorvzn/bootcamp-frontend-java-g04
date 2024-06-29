@@ -11,6 +11,9 @@ const Header = () => {
 
   const toggleSidebar = () => setOpen(!open)
 
+  // TODO: Mostrar el total de productos sumando el campo quantity
+  const cartCount = 0
+
   const classSidebar = 'fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform bg-slate-100 w-80 text-black'
 
   return (
@@ -20,6 +23,12 @@ const Header = () => {
       
         <button className="text-3xl relative" onClick={toggleSidebar}>
           <TbShoppingBag />
+
+          {cartCount > 0 && 
+            <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-1 -right-3 ">                
+              {cartCount}
+            </div>
+          }
         </button>
 
         <div
@@ -32,15 +41,17 @@ const Header = () => {
 
             <button onClick={toggleSidebar}>❌</button>
           </div>
-
-          <div className="py-3">
-            <button
-              className="w-full text-slate-900 bg-red-400 hover:bg-red-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
-              onClick={cleanCart}
-            >
-              Clean Cart
-            </button>
-          </div>
+          
+          {cartCount > 0 && 
+            <div className="py-3">
+              <button
+                className="w-full text-slate-900 bg-red-400 hover:bg-red-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+                onClick={cleanCart}
+              >
+                Clean Cart
+              </button>
+            </div>
+          }
 
           <div className="flex flex-col gap-1 m-4">
             {cart.map(({ id, title, price, quantity }) => {
