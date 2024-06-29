@@ -1,23 +1,7 @@
 import { useEffect, useState } from "react"
-import axios from 'axios'
+import { fetchProductsWithAxios } from "../../services/products"
 
 import ProductItem from "./ProductItem"
-
-// const fetchProductsWithAPIFetch = async () => {
-//   const url = 'https://dummyjson.com/products'
-
-//   const response = await fetch(url)
-
-//   return (await response).json()
-// }
-
-const fetchProductsWithAxios = async () => {
-  const url = 'https://dummyjson.com/products'
-
-  const response = await axios.get(url)
-
-  return response.data
-}
 
 const ProductList = () => {
   const [productList, setProductList] = useState([])
