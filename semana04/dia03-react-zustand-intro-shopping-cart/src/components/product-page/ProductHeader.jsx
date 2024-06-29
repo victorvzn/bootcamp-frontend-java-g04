@@ -5,7 +5,7 @@ import { useCartStore } from "../../store/cart";
 const Header = () => {
   const [open, setOpen] = useState(false)
 
-  const { cart } = useCartStore()
+  const { cart, removeFromCart, cleanCart } = useCartStore()
 
   const showCart = open ? 'translate-none' : 'translate-x-full'
 
@@ -33,12 +33,22 @@ const Header = () => {
             <button onClick={toggleSidebar}>❌</button>
           </div>
 
+          <div className="py-3">
+            <button
+              className="w-full text-slate-900 bg-red-400 hover:bg-red-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+              onClick={cleanCart}
+            >
+              Clean Cart
+            </button>
+          </div>
+
           <div className="flex flex-col gap-1 m-4">
             {cart.map(({ id, title, price, quantity }) => {
               return (
                 <button
                   key={id}
                   className='text-slate-900 bg-yellow-400 hover:bg-yellow-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2'
+                  onClick={() => removeFromCart(id)}
                 >
                   {title} - ${price} (Qty: {quantity})
                 </button>
