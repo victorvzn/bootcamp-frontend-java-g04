@@ -14,7 +14,7 @@ const ProductItem = ({ title, description, price, thumbnail }) => {
         </div>
         <div className="flex flex-col items-center justify-between md:flex-row">
           <span className="text-3xl font-bold text-gray-900">
-            {price}
+            ${price}
           </span>
           
           <button
