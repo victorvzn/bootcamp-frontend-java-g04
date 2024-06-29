@@ -1,8 +1,14 @@
-import Counter from "./components/Counter"
+// import Counter from "./components/Counter"
+
+import ProductPage from "./pages/ProductPage"
 
 const App = () => {
   return (
-    <Counter /> 
+    <>
+      {/* <Counter /> 
+      <Counter />  */}
+      <ProductPage />
+    </>
   )
 }
 
