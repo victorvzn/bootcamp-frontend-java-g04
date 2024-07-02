@@ -3,6 +3,9 @@ import { TbChevronRight } from "react-icons/tb";
 import { Link } from 'react-router-dom'
 
 const InvoiceList = ({ invoices }) => {
+
+  // TODO: Manejar el preloading de los invoices
+
   return (
     <>
       <section className="w-full md:w-[740px] m-auto flex flex-col gap-5">
