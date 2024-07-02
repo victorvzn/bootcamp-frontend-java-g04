@@ -1,6 +1,21 @@
-const InvoiceList = () => {
+const InvoiceList = ({ invoices }) => {
   return (
-    <div>InvoiceList</div>
+    <>
+      <section>
+        {invoices && invoices.map(invoice => {
+          return (
+            <article
+              className="text-white"
+              key={invoice.id}
+            >
+              <div>
+                {invoice.code}
+              </div>
+            </article>
+          )
+        })}
+      </section>
+    </>
   )
 }
 

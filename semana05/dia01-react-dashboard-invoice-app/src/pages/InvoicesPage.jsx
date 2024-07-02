@@ -16,9 +16,7 @@ const InvoicesPage = () => {
     <>
       <InvoiceHeader />
 
-      <InvoiceList />
-
-      <pre>{JSON.stringify(invoices, null, 2)}</pre>
+      <InvoiceList invoices={invoices} />
     </>
   )
 }
