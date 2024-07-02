@@ -1,6 +1,13 @@
+import InvoiceHeader from "../components/invoices-page/InvoiceHeader"
+import InvoiceList from "../components/invoices-page/InvoiceList"
+
 const InvoicesPage = () => {
   return (
-    <div>InvoicesPage</div>
+    <>
+      <InvoiceHeader />
+
+      <InvoiceList />
+    </>
   )
 }
 
