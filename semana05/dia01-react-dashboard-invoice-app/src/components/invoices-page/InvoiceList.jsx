@@ -1,6 +1,7 @@
 import { TbChevronRight } from "react-icons/tb";
 
 import { Link } from 'react-router-dom'
+import BaseTag from "../shared/BaseTag";
 
 const InvoiceList = ({ invoices }) => {
 
@@ -12,7 +13,7 @@ const InvoiceList = ({ invoices }) => {
         {invoices && invoices.map(invoice => {
           return (
             <article
-              className="bg-slate-700 px-4 py-4 rounded-lg flex justify-between text-white text-base items-center gap-3"
+              className="bg-slate-700 px-4 py-4 rounded-lg flex justify-between text-white text-base items-center gap-5"
               key={invoice.id}
             >
               <div className="w-20">
@@ -21,12 +22,20 @@ const InvoiceList = ({ invoices }) => {
               </div>
               <div className="w-44 font-semibold">{invoice.invoice.date}</div>
               <div className="w-44 font-semibold">{invoice.bill.to.client.name}</div>
-              <div className="w-44 text-3xl font-extrabold">
+              <div className="w-44 text-3xl font-extrabold text-right">
                 {invoice.invoice.currency.symbol}
                 {invoice.invoice.grandTotal}
               </div>
               <div>
-                {invoice.status}
+                {invoice.status === 'paid'
+                  && <BaseTag label={invoice.status} bgColor="bg-emerald-400/20" textColor="text-emerald-400" />
+                }
+                {invoice.status === 'pending'
+                  && <BaseTag label={invoice.status} bgColor="bg-orange-400/20" textColor="text-orange-400" />
+                }
+                {invoice.status === 'draft'
+                  && <BaseTag label={invoice.status} bgColor="bg-slate-400/20" textColor="text-slate-100" />
+                }
               </div>
               <div className="w-14 flex justify-center">
                 <Link
