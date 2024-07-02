@@ -60,7 +60,7 @@ const InvoiceDetailPage = () => {
       </header>
 
       <section>
-        
+        {/* TODO: Maquetar sección de detalle aquí */}
       </section>
 
       <pre>{JSON.stringify(invoice, null, 2)}</pre>
