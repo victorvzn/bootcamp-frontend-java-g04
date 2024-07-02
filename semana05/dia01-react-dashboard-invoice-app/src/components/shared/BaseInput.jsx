@@ -9,10 +9,10 @@ const BaseInput = ({
   onChange
 }) => {
   return (
-    <label className={`text-black flex flex-col gap-2 mb-4 ${classx}`}>
+    <label className={`text-white flex flex-col gap-2 mb-4 ${classx}`}>
       <span>{label}</span>
       <input
-        className="w-full py-4 px-5 rounded-lg bg-slate-50"
+        className="w-full py-4 px-5 rounded-lg bg-slate-600"
         type={type}
         name={name}
         placeholder={placeholder}
