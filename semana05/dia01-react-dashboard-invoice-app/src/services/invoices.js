@@ -19,3 +19,23 @@ export const fetchInvoices = async () => {
     console.log(error)
   }
 }
+
+export const getInvoice = async (id) => {
+  try {
+    const url = `${API_URL}/invoices/${id}`
+
+    const response = await fetch(url)
+
+    if (response.status === 400) {
+      throw new Error('4XX:', response.status)
+    }
+
+    if (!response.ok) {
+      throw new Error('ERROR:', response.status)
+    }
+
+    return response.json()
+  } catch(error) {
+    console.log(error)
+  }
+}

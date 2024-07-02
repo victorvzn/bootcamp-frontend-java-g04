@@ -1,2 +1,5 @@
 ### Listado invoices
 GET https://668348284102471fa4c9a3dc.mockapi.io/api/v1/invoices
+
+### Obteniendo un invoice por id
+GET https://668348284102471fa4c9a3dc.mockapi.io/api/v1/invoices/81a8bd15-959a-4f6f-a5ae-920076fa1d5c
