@@ -8,7 +8,7 @@ import BaseButton from "../components/shared/BaseButton";
 const InvoiceDetailPage = () => {
   const { id } = useParams()
 
-  const [invoice, setInvoice] = useState(null)
+  const [invoice, setInvoice] = useState({})
 
   useEffect(() => {
     getInvoice(id)
@@ -29,18 +29,18 @@ const InvoiceDetailPage = () => {
         <div className="flex items-center gap-3">
           <h3>Status</h3>
           {invoice.status === 'paid'
-            && <BaseTag label={invoice.status} bgColor="bg-emerald-400/20" textColor="text-emerald-400" />
+            && <BaseTag label={invoice?.status} bgColor="bg-emerald-400/20" textColor="text-emerald-400" />
           }
           {invoice.status === 'pending'
-            && <BaseTag label={invoice.status} bgColor="bg-orange-400/20" textColor="text-orange-400" />
+            && <BaseTag label={invoice?.status} bgColor="bg-orange-400/20" textColor="text-orange-400" />
           }
           {invoice.status === 'draft'
-            && <BaseTag label={invoice.status} bgColor="bg-slate-400/20" textColor="text-slate-100" />
+            && <BaseTag label={invoice?.status} bgColor="bg-slate-400/20" textColor="text-slate-100" />
           }
         </div>
 
         <div className="flex items-center gap-3">
-          <Link>
+          <Link to={`/invoices/${invoice?.id}/edit`}>
             <BaseButton
               label="Edit"
               bgColor="bg-slate-600"
@@ -59,7 +59,9 @@ const InvoiceDetailPage = () => {
         </div>
       </header>
 
-      <section>
+      <section
+        className="flex justify-between bg-slate-700 py-4 px-8 mt-10 rounded-lg"
+      >
         {/* TODO: Maquetar sección de detalle aquí */}
       </section>
 
