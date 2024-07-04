@@ -1,5 +1,5 @@
 export default function Home() {
   return (
-    <h1>Hola Next.js</h1>
+    <h1 className="text-4xl text-center">Hola Next.js</h1>
   )
 }
