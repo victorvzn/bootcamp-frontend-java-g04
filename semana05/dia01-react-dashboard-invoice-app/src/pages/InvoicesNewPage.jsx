@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import BaseInput from "../components/shared/BaseInput"
 import BaseSelect from "../components/shared/BaseSelect"
 import BaseButton from "../components/shared/BaseButton"
+import { createInvoice } from "../services/invoices"
 
 const InvoicesNewPage = () => {
   const INITIAL_FORM_VALUE = {
@@ -43,7 +44,7 @@ const InvoicesNewPage = () => {
     return crypto.randomUUID().split('-').at(0).slice(0, 6)
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     // Validación del formulario
@@ -101,8 +102,18 @@ const InvoicesNewPage = () => {
     }
 
     console.log('Enviando data...', newInvoice)
+    // Hacer un request mediante el método POST al endpoint invoices
+    const response = await createInvoice(newInvoice)
 
-    
+    console.log(response)
+
+    if (response) {
+      // Redireccionamos al listado de '/invoices'
+      console.log('OK')
+    } else {
+      // Mostramos un mensaje de un error
+      console.log('OK')
+    }
   }
 
   return (
