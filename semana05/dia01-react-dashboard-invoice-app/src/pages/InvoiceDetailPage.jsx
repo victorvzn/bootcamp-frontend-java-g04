@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { Link, useNavigate, useParams } from "react-router-dom"
-import { getInvoice } from "../services/invoices"
+import { Link, useParams } from "react-router-dom"
+import { getInvoice, updateInvoiceStatus } from "../services/invoices"
 import { TbChevronLeft } from "react-icons/tb";
 import BaseTag from "../components/shared/BaseTag";
 import BaseButton from "../components/shared/BaseButton";
@@ -9,11 +9,28 @@ const InvoiceDetailPage = () => {
   const { id } = useParams()
 
   const [invoice, setInvoice] = useState({})
+  const [refresh, setRefresh] = useState(0)
 
   useEffect(() => {
     getInvoice(id)
       .then(data => setInvoice(data))
-  }, [id])
+  }, [id, refresh])
+
+  const handleMarkAsPaid = async () => {
+    console.log('MArk as paid clicked...')
+    const response = await updateInvoiceStatus(id, 'paid')
+
+    if (response) {
+      // Actualizar la pagina
+      setRefresh(refresh + 1)
+    }
+  }
+
+  const handleInvoiceDelete = async () => {
+    console.log('deleting invoice..', id)
+
+    // TODO: Implementar el delete del invoice
+  }
 
   return (
     <section className="w-full md:w-[740px] m-auto flex flex-col gap-5 text-white">
@@ -50,11 +67,13 @@ const InvoiceDetailPage = () => {
           <BaseButton
             label="Delete"
             bgColor="bg-red-500"
+            onClick={handleInvoiceDelete}
           />
 
           <BaseButton
             label="Mark as Paid"
             bgColor="bg-violet-500"
+            onClick={handleMarkAsPaid}
           />
         </div>
       </header>

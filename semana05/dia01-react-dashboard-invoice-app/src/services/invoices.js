@@ -65,3 +65,22 @@ export const createInvoice = async (form) => {
     console.log(error)
   }
 }
+
+export const updateInvoiceStatus = async (id, newStatus) => {
+  const url = `${API_URL}/invoices/${id}`
+
+  const options = {
+    method: 'PUT', // PATCH === PUT (Solo en mockapi)
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ status: newStatus })
+  }
+
+  const response = await fetch(url, options)
+  
+  const data = response.json()
+
+  return data
+}
+
