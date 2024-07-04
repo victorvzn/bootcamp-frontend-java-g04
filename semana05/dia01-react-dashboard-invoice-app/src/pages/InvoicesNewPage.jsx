@@ -39,6 +39,72 @@ const InvoicesNewPage = () => {
     setForm({ ...form, [name]: value })
   }
 
+  const generateCode = () => {
+    return crypto.randomUUID().split('-').at(0).slice(0, 6)
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    // Validación del formulario
+
+    const newCode = generateCode()
+
+    const status = 'draft'
+
+    const newInvoice = {
+      "code": newCode,
+      status,
+      "bill": {
+        "from": {
+          "streetAddress": form.billFromStreetAddress,
+          "city": form.billFromCity,
+          "postCode": form.billFromPostCode,
+          "country": form.billFromCountry
+        },
+        "to": {
+          "client": {
+            "name": form.billToClientName,
+            "email": form.billToClientEmail
+          },
+          "streetAddress": form.billToClientStreetAddress,
+          "city": form.billToCity,
+          "postCode": form.billToPostCode,
+          "country": form.billToCountry
+        }
+      },
+      "invoice": {
+        "date": form.invoiceDate,
+        "paymentTerms": form.paymentTerms,
+        "project": {
+          "description": form.projectDescription
+        },
+        "grandTotal": 6000,
+        "currency": {
+          "symbol": "$"
+        },
+        "items": [
+          {
+            "name": "Nintendo Switch",
+            "qty": 2,
+            "price": 2500,
+            "total": 5000
+          },
+          {
+            "name": "Juego Crash Bandicoot",
+            "qty": 5,
+            "price": 200,
+            "total": 1000
+          }
+        ]
+      }
+    }
+
+    console.log('Enviando data...', newInvoice)
+
+    
+  }
+
   return (
     <section className="w-full md:w-[740px] m-auto flex flex-col gap-5 text-white">
       <Link
@@ -57,7 +123,7 @@ const InvoicesNewPage = () => {
 
       <pre>{JSON.stringify(form, null, 2)}</pre>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <h4 className="text-violet-500 font-bold mb-5">Bill From</h4>
 
         <BaseInput
@@ -160,7 +226,7 @@ const InvoicesNewPage = () => {
             name="paymentTerms"
             options={paymentTermsOptions}
             onChange={handleChange}
-            value={form.paymentTermsOptions}
+            value={form.paymentTerms}
           />
         </div>
 
