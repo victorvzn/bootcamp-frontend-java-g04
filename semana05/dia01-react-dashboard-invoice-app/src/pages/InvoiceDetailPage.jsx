@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
-import { getInvoice, updateInvoiceStatus } from "../services/invoices"
+import { Link, useParams, useNavigate } from "react-router-dom"
+import { deleteInvoice, getInvoice, updateInvoiceStatus } from "../services/invoices"
 import { TbChevronLeft } from "react-icons/tb";
 import BaseTag from "../components/shared/BaseTag";
 import BaseButton from "../components/shared/BaseButton";
+import Swal from 'sweetalert2'
 
 const InvoiceDetailPage = () => {
   const { id } = useParams()
+
+  const navigate = useNavigate()
 
   const [invoice, setInvoice] = useState({})
   const [refresh, setRefresh] = useState(0)
@@ -30,6 +33,34 @@ const InvoiceDetailPage = () => {
     console.log('deleting invoice..', id)
 
     // TODO: Implementar el delete del invoice
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteInvoice(id)
+          .then(res => {
+            if (res) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your invoice has been deleted.",
+                icon: "success"
+              });
+
+              navigate('/invoices')
+            }
+          })
+      }
+    });
+
+    
+
   }
 
   return (

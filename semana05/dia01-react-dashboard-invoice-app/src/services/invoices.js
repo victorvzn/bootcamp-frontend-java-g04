@@ -84,3 +84,18 @@ export const updateInvoiceStatus = async (id, newStatus) => {
   return data
 }
 
+export const deleteInvoice = async (id) => {
+  try {
+    const url = `${API_URL}/invoices/${id}`
+
+    const options = {
+      method: 'DELETE'
+    }
+
+    const response = await fetch(url, options)
+
+    return response.json()
+  } catch(error) {
+    console.log(error)
+  }
+}
