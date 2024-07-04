@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
+import { Toaster } from 'sonner'
 import LayoutBase from './layouts/LayoutBase'
 
 import LoginPage from './pages/LoginPage'
@@ -10,19 +10,23 @@ import InvoicesEditPage from './pages/InvoicesEditPage'
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
+    <>
+      <Toaster position="top-right" />
 
-        <Route path='/' element={<LayoutBase />}>
-          <Route path='/' element={<LoginPage />} />
-          <Route path='/invoices' element={<InvoicesPage />} />
-          <Route path='/invoices/new' element={<InvoicesNewPage />} />
-          <Route path='/invoices/:id' element={<InvoiceDetailPage />} />
-          <Route path='/invoices/:id/edit' element={<InvoicesEditPage />} />
-        </Route>
+      <BrowserRouter>
+        <Routes>
 
-      </Routes>
-    </BrowserRouter>
+          <Route path='/' element={<LayoutBase />}>
+            <Route path='/' element={<LoginPage />} />
+            <Route path='/invoices' element={<InvoicesPage />} />
+            <Route path='/invoices/new' element={<InvoicesNewPage />} />
+            <Route path='/invoices/:id' element={<InvoiceDetailPage />} />
+            <Route path='/invoices/:id/edit' element={<InvoicesEditPage />} />
+          </Route>
+
+        </Routes>
+      </BrowserRouter>
+    </>
   )
 }
 

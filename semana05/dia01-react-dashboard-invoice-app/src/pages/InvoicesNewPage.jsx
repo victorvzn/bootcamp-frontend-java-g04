@@ -1,12 +1,18 @@
-import { useState } from "react"
 import { TbChevronLeft } from "react-icons/tb"
-import { Link } from "react-router-dom"
+
+import { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import { toast } from "sonner"
+
+import { createInvoice } from "../services/invoices"
+
 import BaseInput from "../components/shared/BaseInput"
 import BaseSelect from "../components/shared/BaseSelect"
 import BaseButton from "../components/shared/BaseButton"
-import { createInvoice } from "../services/invoices"
 
 const InvoicesNewPage = () => {
+  const navigate = useNavigate()
+
   const INITIAL_FORM_VALUE = {
     billFromStreetAddress: '',
     billFromCity: '',
@@ -109,7 +115,9 @@ const InvoicesNewPage = () => {
 
     if (response) {
       // Redireccionamos al listado de '/invoices'
+      toast.success('Event has been created')
       console.log('OK')
+      navigate('/invoices')
     } else {
       // Mostramos un mensaje de un error
       console.log('OK')
