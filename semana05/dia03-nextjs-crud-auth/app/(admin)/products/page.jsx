@@ -1,5 +1,10 @@
+import Image from "next/image"
+import Link from "next/link";
+import { TbEdit } from "react-icons/tb";
+import { TbTrash } from "react-icons/tb";
+
 const fetchProducts = async () => {
-  const url = 'https://dummyjson.com/products'
+  const url = 'https://dummyjson.com/products?limit=5&skip=0'
 
   const response = await fetch(url)
 
@@ -7,7 +12,7 @@ const fetchProducts = async () => {
 }
 
 const ProductsPage = async () => {
-  const products = await fetchProducts()
+  const { products } = await fetchProducts()
 
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -39,23 +44,42 @@ const ProductsPage = async () => {
           </thead>
           <tbody>
             {/* TODO: Renderizar los productos en esta tabla */}
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-              <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                Apple MacBook Pro 17"
-              </th>
-              <td className="px-6 py-4">
-                Silver
-              </td>
-              <td className="px-6 py-4">
-                Laptop
-              </td>
-              <td className="px-6 py-4">
-                $2999
-              </td>
-              <td className="px-6 py-4 text-right">
-                <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-              </td>
-            </tr>
+            {products.map(product => {
+              return (
+                <tr
+                  className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+                  key={product.id}
+                >
+                  <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <Image
+                      src={product.thumbnail}
+                      width={96}
+                      height={96}
+                    />
+                  </th>
+                  <td className="px-6 py-4">
+                    {product.title}
+                  </td>
+                  <td className="px-6 py-4">
+                    
+                    <span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded capitalize">{product.category}</span>
+                  </td>
+                  <td className="px-6 py-4 text-lg font-bold">
+                    ${product.price}
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <div className="flex gap-3">
+                      <Link href={`/products/${product.id}`} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                        <TbEdit size="1.5rem" />
+                      </Link>
+                      <Link href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
+                        <TbTrash size="1.5rem" />
+                      </Link>
+                    </div>
+                  </td>
+                </tr>
+              )
+            })}
         </tbody>
       </table>
     </div>
