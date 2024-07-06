@@ -1,7 +1,9 @@
 import Image from "next/image"
 import Link from "next/link";
+
 import { TbEdit } from "react-icons/tb";
 import { TbTrash } from "react-icons/tb";
+import { TbEye } from "react-icons/tb";
 
 const fetchProducts = async () => {
   const url = 'https://dummyjson.com/products?limit=5&skip=0'
@@ -69,6 +71,9 @@ const ProductsPage = async () => {
                   </td>
                   <td className="px-6 py-4 text-center">
                     <div className="flex gap-3">
+                      <Link href={`/products/${product.id}`} className="font-medium text-amber-600 dark:text-amber-500 hover:underline">
+                        <TbEye size="1.5rem" />
+                      </Link>
                       <Link href={`/products/${product.id}`} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                         <TbEdit size="1.5rem" />
                       </Link>
