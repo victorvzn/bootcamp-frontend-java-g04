@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 
 const getPokemon = async (name) => {
@@ -7,7 +8,6 @@ const getPokemon = async (name) => {
 
   return await response.json()
 }
-
 
 const PokemonDetailPage = async ({ params }) => {
   const { name } = params
@@ -20,8 +20,10 @@ const PokemonDetailPage = async ({ params }) => {
 
       <div>PokemonDetailPage: {name}</div>
 
-      <img
+      <Image
         src={pokemon.sprites.other['official-artwork']['front_default']}
+        width={200}
+        height={200}
       />
 
       {/* <pre>{JSON.stringify(pokemon)}</pre> */}
