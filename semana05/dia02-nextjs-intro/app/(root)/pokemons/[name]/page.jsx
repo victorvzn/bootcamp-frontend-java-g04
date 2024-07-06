@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 const getPokemon = async (name) => {
   const url = `https://pokeapi.co/api/v2/pokemon/${name}`
 
@@ -14,6 +16,8 @@ const PokemonDetailPage = async ({ params }) => {
 
   return (
     <>
+      <Link href='/pokemons' className="text-blue-400">Regresar a pokemons</Link>
+
       <div>PokemonDetailPage: {name}</div>
 
       <img
