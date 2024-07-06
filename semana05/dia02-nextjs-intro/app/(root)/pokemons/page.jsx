@@ -1,4 +1,5 @@
 import Link from "next/link"
+import CounterButton from "../components/CounterButton"
 
 const fetchPokemons = async () => {
   const url = 'https://pokeapi.co/api/v2/pokemon'
@@ -14,6 +15,8 @@ const PokemonsPage = async () => {
   return (
     <>
       <h1>Pokemons Page</h1>
+
+      <CounterButton />
 
       <ol>
         {pokemons.results.map(pokemon => {
