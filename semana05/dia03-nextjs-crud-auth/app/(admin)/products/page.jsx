@@ -18,14 +18,22 @@ const ProductsPage = async () => {
 
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <caption className="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+      <table className="w-full text-sm text-left text-gray-500">
+        <caption className="p-5 text-lg font-semibold text-left text-gray-900 bg-white">
           Our products
-          <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
+          <p className="mt-1 text-sm font-normal text-gray-500">
             Browse a list of products designed to help you work and play and more.
           </p>
+          <Link href="/products/new">
+            <button
+              type="button"
+              class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 "
+            >
+              New Product
+            </button>
+            </Link>
         </caption>
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50">
             <tr>
               <th scope="col" className="px-6 py-3">
                 Photo
@@ -49,10 +57,10 @@ const ProductsPage = async () => {
             {products.map(product => {
               return (
                 <tr
-                  className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+                  className="bg-white border-b"
                   key={product.id}
                 >
-                  <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                     <Image
                       src={product.thumbnail}
                       width={96}
@@ -71,13 +79,13 @@ const ProductsPage = async () => {
                   </td>
                   <td className="px-6 py-4 text-center">
                     <div className="flex gap-3">
-                      <Link href={`/products/${product.id}`} className="font-medium text-amber-600 dark:text-amber-500 hover:underline">
+                      <Link href={`/products/${product.id}/detail`} className="font-medium text-amber-600 hover:underline">
                         <TbEye size="1.5rem" />
                       </Link>
-                      <Link href={`/products/${product.id}`} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                      <Link href={`/products/${product.id}/edit`} className="font-medium text-blue-600 hover:underline">
                         <TbEdit size="1.5rem" />
                       </Link>
-                      <Link href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">
+                      <Link href="#" className="font-medium text-red-600 hover:underline">
                         <TbTrash size="1.5rem" />
                       </Link>
                     </div>

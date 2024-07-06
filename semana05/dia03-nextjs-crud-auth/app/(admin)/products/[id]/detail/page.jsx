@@ -2,12 +2,12 @@ import React from 'react'
 
 // TODO: renderizar el detalle del producto
 
-const ProductEditPage = ({ params }) => {
+const ProductDetailPage = ({ params }) => {
   const { id } = params
 
   return (
-    <div>ProductEditPage: {id}</div>
+    <div>ProductDetailPage: {id}</div>
   )
 }
 
-export default ProductEditPage
+export default ProductDetailPage
