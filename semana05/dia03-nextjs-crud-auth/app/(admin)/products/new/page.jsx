@@ -3,8 +3,11 @@
 import { useEffect, useState } from "react"
 import { createProduct } from "../services/products"
 import { fetchCategories } from "../services/categories"
+import { useRouter } from "next/navigation"
 
 const ProductNewPage = () => {
+  const router = useRouter()
+
   const INITIAL_FORM = {
     title: '',
     price: 0,
@@ -38,7 +41,7 @@ const ProductNewPage = () => {
 
     setForm(INITIAL_FORM)
 
-    // redirect('/products')
+    router.push('/products')
   }
 
   return (
@@ -64,7 +67,14 @@ const ProductNewPage = () => {
           onChange={handleChange}
           value={form.category} /> */}
 
-          <select  onChange={handleChange} value={form.category}>
+          <select
+            id="category"
+            name="category"
+            onChange={handleChange}
+            value={form.category}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            required
+          >
             {categories.map(category => (
               <option key={category.slug} value={category.slug}>
                 {category.name}
@@ -73,6 +83,7 @@ const ProductNewPage = () => {
           </select>
           {/* <pre>{JSON.stringify(categories, null, 2)}</pre> */}
         </div>
+
         <pre>{JSON.stringify(form)}</pre>
         <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Save</button>
       </form>
