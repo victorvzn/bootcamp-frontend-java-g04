@@ -50,7 +50,7 @@ const ProductEditPage = ({ params }) => {
 
   }, [])
 
-  const handleNewProduct = async (data) => {
+  const handleUpdateProduct = async (data) => {
    
     console.log(data)
 
@@ -65,7 +65,7 @@ const ProductEditPage = ({ params }) => {
 
   return (
     <section>
-      <form onSubmit={handleSubmit(handleNewProduct)} className="max-w-sm mx-auto">
+      <form onSubmit={handleSubmit(handleUpdateProduct)} className="max-w-sm mx-auto">
         <h1 className="text-3xl font-bold mb-4">Edit product {id}</h1>
         <div className="mb-5">
           <label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900">Title</label>
