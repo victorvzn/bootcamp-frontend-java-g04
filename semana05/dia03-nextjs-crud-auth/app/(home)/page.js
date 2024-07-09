@@ -18,9 +18,9 @@ const HomePage = () => {
             Sign Up
           </Link>
 
-          <Link href="/products" className="py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">
+          {/* <Link href="/products" className="py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">
             Products
-          </Link>  
+          </Link>   */}
         </div>
       </div>
   </section>
