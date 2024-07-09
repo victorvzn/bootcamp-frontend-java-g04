@@ -20,18 +20,22 @@ const ProductsPage = async () => {
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
       <table className="w-full text-sm text-left text-gray-500">
         <caption className="p-5 text-lg font-semibold text-left text-gray-900 bg-white">
-          Our products
-          <p className="mt-1 text-sm font-normal text-gray-500">
-            Browse a list of products designed to help you work and play and more.
-          </p>
-          <Link href="/products/new">
-            <button
-              type="button"
-              class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 "
-            >
-              New Product
-            </button>
+          <div className="flex justify-between">
+            <div>
+              Our products
+              <p className="mt-1 text-sm font-normal text-gray-500">
+                Browse a list of products designed to help you work and play and more.
+              </p>
+            </div>
+            <Link href="/products/new">
+              <button
+                type="button"
+                class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 "
+              >
+                New Product
+              </button>
             </Link>
+          </div>
         </caption>
           <thead className="text-xs text-gray-700 uppercase bg-gray-50">
             <tr>
