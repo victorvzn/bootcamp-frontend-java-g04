@@ -4,14 +4,7 @@ import Link from "next/link";
 import { TbEdit } from "react-icons/tb";
 import { TbTrash } from "react-icons/tb";
 import { TbEye } from "react-icons/tb";
-
-const fetchProducts = async () => {
-  const url = 'https://dummyjson.com/products?limit=5&skip=0'
-
-  const response = await fetch(url)
-
-  return await response.json()
-}
+import { fetchProducts } from "./services/products";
 
 const ProductsPage = async () => {
   const { products } = await fetchProducts()
