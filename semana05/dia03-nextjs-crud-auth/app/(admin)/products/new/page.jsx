@@ -28,15 +28,13 @@ const ProductNewPage = () => {
 
     // TODO: implementar el envio por POST a el servicio dummyjson.com
 
-    // console.log('Saving...')
+    console.log('Saving...')
 
-    // const res = await createProduct(form)
+    const res = await createProduct(data)
 
-    // console.log(res)
+    console.log(res)
 
-    // setForm(INITIAL_FORM)
-
-    // router.push('/products')
+    router.push('/products')
   }
 
   return (
