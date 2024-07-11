@@ -1,0 +1,19 @@
+### Login (Lista de usuarios: https://dummyjson.com/users)
+
+POST https://dummyjson.com/auth/login
+Content-Type: application/json
+
+{
+  "username": "emilys",
+  "password": "emilyspass"
+}
+
+### Get all products (PUBLIC)
+
+GET https://dummyjson.com/products
+
+### Get all products (PRIVATE)
+
+GET https://dummyjson.com/auth/products
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJlbWlseXMiLCJlbWFpbCI6ImVtaWx5LmpvaG5zb25AeC5kdW1teWpzb24uY29tIiwiZmlyc3ROYW1lIjoiRW1pbHkiLCJsYXN0TmFtZSI6IkpvaG5zb24iLCJnZW5kZXIiOiJmZW1hbGUiLCJpbWFnZSI6Imh0dHBzOi8vZHVtbXlqc29uLmNvbS9pY29uL2VtaWx5cy8xMjgiLCJpYXQiOjE3MjA2NTgzMTEsImV4cCI6MTcyMDY2MTkxMX0.a7uPPcVt0kr26DFdPhhHvrB-MwjVSBtcjsn5DnF1j7M
